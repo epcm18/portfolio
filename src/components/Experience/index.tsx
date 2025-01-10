@@ -22,7 +22,9 @@ type ExperienceProps = {
   experiences: ExperienceItem[];
 };
 
-export const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
+export const Experience: React.FC<ExperienceProps> = ({
+  experiences,
+}: ExperienceProps) => {
   return (
     <Box width="100%" py={8}>
       <Heading size="xl" mb={6} textAlign="left">
@@ -33,7 +35,7 @@ export const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
         align="start"
         divider={<StackDivider borderColor="gray.200" />}
       >
-        {experiences.map((experience, index) => (
+        {experiences.map((experience: ExperienceItem, index: number) => (
           <Box key={index}>
             <Heading as="h3" size="md" mb={1}>
               {experience.title} @ {experience.company}
@@ -42,7 +44,7 @@ export const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
               {experience.duration}
             </Text>
             <List spacing={3}>
-              {experience.description.map((point, idx) => (
+              {experience.description.map((point: string, idx: number) => (
                 <ListItem key={idx} display="flex" alignItems="center">
                   <Icon as={FaCircle} w={2} h={2} color="cyan.500" mr={2} />
                   {point}
