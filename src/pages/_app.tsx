@@ -3,8 +3,12 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme";
 import { AppProps } from "next/app";
 import "./../components/Logo/style.css";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    document.body.style.zoom = "85%";
+  }, []);
   return (
     <>
       <Head>

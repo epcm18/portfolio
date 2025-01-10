@@ -21,30 +21,30 @@ const Index: React.FC = () => {
     <>
       <NavBar {...links}></NavBar>
       <Container as="main" maxW="100%" p={0} centerContent>
-        <Box width="100%" mt={10}>
+        <Box width="100%" mt={16}>
           <LandingPage {...bio} isMobile={isMobile} />
         </Box>
 
         <Container maxW="6xl" centerContent>
-          <Box id="about" mt={12}>
+          <Box id="about" mt={16}>
             <About content={bio.about} />
           </Box>
-          <Box id="experience" width={"100%"} mt={12}>
+          <Box id="experience" width={"100%"} mt={16}>
             <Experience experiences={experienceData} />
           </Box>
-          <Box id="projects" mt={12}>
+          <Box id="projects" mt={16}>
             <Projects
               experiences={experiences}
               dailyTasks={dailyTasks}
             ></Projects>
           </Box>
-          <Box id="skills" width={"100%"} mt={12}>
+          <Box id="skills" width={"100%"} mt={16}>
             <Skills skills={skills} />
           </Box>
-          <Box id="contact" width={"100%"} mt={24} mb={36}>
+          <Box id="contact" width={"100%"} mt={38} mb={16}>
             <Contact socials={bio.socials} />
           </Box>
-          <Footer>
+          <Footer mt={16}>
             <Text fontSize={"sm"}>
               Made with ❤️+ ꜱᴋ14 by{" "}
               <Link href={"https://github.com/epcm18"} isExternal>

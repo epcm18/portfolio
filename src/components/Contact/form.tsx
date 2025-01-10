@@ -155,7 +155,7 @@ export const ContactForm: React.FC = () => {
           <FormControl isInvalid={!!captchaError} isRequired>
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="6LepTy0gAAAAAFMMZUoC9JWpiw71qZw3AzcyhFdF"
+              sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
               onChange={(value: string) =>
                 setCaptchaError(value ? "" : "Robots are not welcome yet!")
               }

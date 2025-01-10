@@ -14,6 +14,7 @@ import Hamburger from "hamburger-react";
 import { DarkModeSwitch } from "../DarkModeSwitch";
 import { Link as LinkType } from "../../types/link";
 import styles from "./navbar.module.css";
+import { useEffect, useState } from "react";
 
 type navBarProps = {
   links: LinkType[];
@@ -25,6 +26,13 @@ export const NavBar: React.FC<navBarProps> = (props: navBarProps) => {
   const _handleLinkOnClick = (): void => {
     if (isOpen) handleToggle();
   };
+
+  const [navbarHeight, setNavbarHeight] = useState(0);
+
+  useEffect(() => {
+    const nav = document.querySelector("nav");
+    if (nav) setNavbarHeight(nav.offsetHeight);
+  }, []);
 
   const _renderNavBarLinks = (): React.ReactNode => {
     // Color Schemes for Link are not implemented in the default theme.
@@ -43,7 +51,7 @@ export const NavBar: React.FC<navBarProps> = (props: navBarProps) => {
         borderRadius={"lg"}
         color={useColorModeValue("gray.800", "white")}
         onClick={_handleLinkOnClick}
-        offset={-85}
+        offset={-navbarHeight}
       >
         {link.name}
       </Link>

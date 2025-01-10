@@ -34,13 +34,14 @@ export const LandingPage: React.FC<LandingPageProps> = (
     <>
       <Box
         w={"100%"}
-        height={"100vh"}
+        height={"120vh"}
         bgImage={
           colorMode === "dark"
             ? "/background-dark.png"
             : "/background-white.png"
         }
         bgRepeat="no-repeat"
+        bgSize="cover"
       >
         <Container pt={{ base: 20, sm: 36 }} pb={28} maxW="6xl" centerContent>
           <Flex flexDir={{ base: "column", sm: "row" }} alignItems={"center"}>
