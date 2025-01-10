@@ -40,7 +40,11 @@ export const Skills: React.FC<SkillsProps> = ({
           items: Array<{ title: string; link: string; pubDate: string }>;
         }) => {
           const posts: BlogPost[] = data.items.map(
-            (item): BlogPost => ({
+            (item: {
+              title: string;
+              link: string;
+              pubDate: string;
+            }): BlogPost => ({
               title: item.title,
               link: item.link,
               pubDate: new Date(item.pubDate).toLocaleDateString(),
