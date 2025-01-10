@@ -1,0 +1,11 @@
+{
+  "first_name": "Pasindu",
+  "last_name": "Chamod Madusha",
+  "summary": "A final year Computer Science and Engineering undergraduate at the University of Moratuwa, with one year of professional experience as a Software Engineer.",
+  "about": "I am currently in my final year of studying Computer Science and Engineering at the University of Moratuwa, set to graduate in May 2025. Based in Colombo, Sri Lanka, I have accumulated one year of professional experience as a Software Engineer Intern and Associate Software Engineer at Fcode Labs, contributing to large-scale, real-world projects. Additionally, I have pursued freelancing, broadening my expertise across diverse domains. I specialize in modern technologies such as React.js, Node.js, Next.js, Redux, Java, Spring Boot, GraphQL, and Unity. My experience spans full-stack development, game development, mobile app development, machine learning, computer vision, and neural networks. Balancing my academic responsibilities with professional work, I also served as the Department Representative of my batch, demonstrating strong leadership and the ability to manage both academic and non-academic activities effectively. I am passionate about continuous self-improvement and strive to become a better version of myself every day. Scroll down to explore some of the projects I've been working on!",
+  "socials": [
+    { "name": "linkedin", "link": "https://www.linkedin.com/in/epcm18" },
+    { "name": "github", "link": "https://github.com/epcm18" },
+    { "name": "twitter", "link": "https://twitter.com/epcm_18" }
+  ]
+}
