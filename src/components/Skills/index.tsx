@@ -39,11 +39,13 @@ export const Skills: React.FC<SkillsProps> = ({
         (data: {
           items: Array<{ title: string; link: string; pubDate: string }>;
         }) => {
-          const posts: BlogPost[] = data.items.map(item => ({
-            title: item.title,
-            link: item.link,
-            pubDate: new Date(item.pubDate).toLocaleDateString(),
-          }));
+          const posts: BlogPost[] = data.items.map(
+            (item): BlogPost => ({
+              title: item.title,
+              link: item.link,
+              pubDate: new Date(item.pubDate).toLocaleDateString(),
+            })
+          );
           setBlogPosts(posts.slice(0, 3)); // Get the latest 3 blog posts
           setLoading(false);
         }
