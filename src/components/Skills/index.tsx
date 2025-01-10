@@ -108,7 +108,8 @@ export const Skills: React.FC<SkillsProps> = ({
           <Text>Latest Medium Blog Posts</Text>
           <Box
             mt={{ base: 0, sm: 16 }}
-            pt={0}
+            pt={2}
+            pl={2}
             width={{ base: "350px", sm: "300px", md: "400px", lg: "500px" }}
           >
             {loading ? (
