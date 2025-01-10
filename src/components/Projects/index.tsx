@@ -1,12 +1,4 @@
-import {
-  Box,
-  GridItem,
-  Heading,
-  SimpleGrid,
-  Tag,
-  Text,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { GridItem, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import { Experience } from "../../types/experience";
 import { Card } from "../Card";
 

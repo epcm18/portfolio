@@ -24,7 +24,7 @@ type ExperienceProps = {
 
 export const Experience: React.FC<ExperienceProps> = ({
   experiences,
-}: ExperienceProps) => {
+}: ExperienceProps): JSX.Element => {
   return (
     <Box width="100%" py={8}>
       <Heading size="xl" mb={6} textAlign="left">
@@ -35,24 +35,28 @@ export const Experience: React.FC<ExperienceProps> = ({
         align="start"
         divider={<StackDivider borderColor="gray.200" />}
       >
-        {experiences.map((experience: ExperienceItem, index: number) => (
-          <Box key={index}>
-            <Heading as="h3" size="md" mb={1}>
-              {experience.title} @ {experience.company}
-            </Heading>
-            <Text fontSize="sm" color="gray.600" mb={2}>
-              {experience.duration}
-            </Text>
-            <List spacing={3}>
-              {experience.description.map((point: string, idx: number) => (
-                <ListItem key={idx} display="flex" alignItems="center">
-                  <Icon as={FaCircle} w={2} h={2} color="cyan.500" mr={2} />
-                  {point}
-                </ListItem>
-              ))}
-            </List>
-          </Box>
-        ))}
+        {experiences.map(
+          (experience: ExperienceItem, index: number): JSX.Element => (
+            <Box key={index}>
+              <Heading as="h3" size="md" mb={1}>
+                {experience.title} @ {experience.company}
+              </Heading>
+              <Text fontSize="sm" color="gray.600" mb={2}>
+                {experience.duration}
+              </Text>
+              <List spacing={3}>
+                {experience.description.map(
+                  (point: string, idx: number): JSX.Element => (
+                    <ListItem key={idx} display="flex" alignItems="center">
+                      <Icon as={FaCircle} w={2} h={2} color="cyan.500" mr={2} />
+                      {point}
+                    </ListItem>
+                  )
+                )}
+              </List>
+            </Box>
+          )
+        )}
       </VStack>
     </Box>
   );

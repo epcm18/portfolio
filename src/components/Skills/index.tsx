@@ -7,7 +7,6 @@ import {
   Text,
   Link,
   Spinner,
-  useColorModeValue,
   Divider,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -24,30 +23,37 @@ type SkillsProps = {
   skills: Skill[];
 };
 
-export const Skills: React.FC<SkillsProps> = ({ skills }) => {
+export const Skills: React.FC<SkillsProps> = ({
+  skills,
+}: SkillsProps): JSX.Element => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     // Fetch Medium RSS feed and parse it
     fetch(
       "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@epcm18"
     )
-      .then(response => response.json())
-      .then(data => {
-        const posts = data.items.map((item: any) => ({
-          title: item.title,
-          link: item.link,
-          pubDate: new Date(item.pubDate).toLocaleDateString(),
-        }));
-        setBlogPosts(posts.slice(0, 3)); // Get the latest 3 blog posts
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error("Error fetching Medium blog posts:", error);
+      .then((response: Response) => response.json())
+      .then(
+        (data: {
+          items: Array<{ title: string; link: string; pubDate: string }>;
+        }) => {
+          const posts: BlogPost[] = data.items.map(item => ({
+            title: item.title,
+            link: item.link,
+            pubDate: new Date(item.pubDate).toLocaleDateString(),
+          }));
+          setBlogPosts(posts.slice(0, 3)); // Get the latest 3 blog posts
+          setLoading(false);
+        }
+      )
+      .catch((error: Error) => {
+        // Replace console statement with better error handling
+        setBlogPosts([]);
         setLoading(false);
       });
-  }, [loading]);
+  }, []);
 
   return (
     <>
@@ -76,16 +82,16 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
             textAlign="center"
             alignSelf={"start"}
           >
-            {skills.map((skill: Skill, index: number) => {
-              return (
+            {skills.map(
+              (skill: Skill, index: number): JSX.Element => (
                 <SkillItem
                   key={index}
                   name={skill.name}
                   Icon={skill.Icon}
                   dabbled={skill.dabbled}
                 />
-              );
-            })}
+              )
+            )}
           </SimpleGrid>
         </Box>
         <motion.div
@@ -103,24 +109,26 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
               <Spinner size="lg" />
             ) : (
               <Stack spacing={8}>
-                {blogPosts.map((post, index) => (
-                  <Box key={index}>
-                    <Link
-                      href={post.link}
-                      isExternal
-                      fontWeight="bold"
-                      fontSize="xl"
-                      color="blue.500"
-                      _hover={{ textDecoration: "underline" }}
-                    >
-                      {post.title}
-                    </Link>
-                    <Text fontSize="sm" color="gray.500" mt={1}>
-                      {post.pubDate}
-                    </Text>
-                    <Divider mt={4} />
-                  </Box>
-                ))}
+                {blogPosts.map(
+                  (post: BlogPost, index: number): JSX.Element => (
+                    <Box key={index}>
+                      <Link
+                        href={post.link}
+                        isExternal
+                        fontWeight="bold"
+                        fontSize="xl"
+                        color="blue.500"
+                        _hover={{ textDecoration: "underline" }}
+                      >
+                        {post.title}
+                      </Link>
+                      <Text fontSize="sm" color="gray.500" mt={1}>
+                        {post.pubDate}
+                      </Text>
+                      <Divider mt={4} />
+                    </Box>
+                  )
+                )}
               </Stack>
             )}
           </Box>
