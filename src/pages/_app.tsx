@@ -25,6 +25,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Open Graph / Linkedin / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://epcm18.com" />
+        <meta
+          property="og:site_name"
+          content="Pasindu Chamod Madusha | Software Engineer"
+        />
         <meta property="og:title" content="Pasindu Chamod Madusha" />
         <meta
           property="og:description"
