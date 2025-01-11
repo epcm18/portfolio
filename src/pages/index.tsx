@@ -46,7 +46,7 @@ const Index: React.FC = () => {
           </Box>
           <Footer mt={16}>
             <Text fontSize={"sm"}>
-              Made with ❤️+ ꜱᴋ14 by{" "}
+              Made with ❤️+ꜱᴋ14 by{" "}
               <Link href={"https://github.com/epcm18"} isExternal>
                 epcm18
               </Link>

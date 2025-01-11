@@ -24,15 +24,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         {/* Open Graph / Linkedin / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="" />
+        <meta property="og:url" content="https://epcm18.com" />
         <meta property="og:title" content="Pasindu Chamod Madusha" />
         <meta
           property="og:description"
           content="I'm Pasindu Chamod Madusha, a Computer Science & Engineering Undergraduate at the University of Moratuwa, with interests in Software Engineering, Web Development, Machine Learning, and AI. Currently a Software Engineer at Fcode Labs and an avid Medium blog writer."
         />
-        <meta property="og:image" content="" />
+        <meta property="og:image" content="104779449.png" />
         <meta property="og:image:alt" content="Pasindu Chamod Madusha" />
-        <meta property="og:image:type" content="image/svg+xml" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="en_US" />
@@ -49,6 +49,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           property="twitter:description"
           content="Hello world! I'm Pasindu Chamod Madusha, a Computer Science & Engineering Undergraduate and a Software Engineer."
         />
+        <meta property="twitter:image" content="104779449.png" />
       </Head>
       <ChakraProvider resetCSS theme={theme}>
         <Component {...pageProps} />
