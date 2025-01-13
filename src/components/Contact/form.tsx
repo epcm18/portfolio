@@ -164,7 +164,7 @@ export const ContactForm: React.FC = () => {
           >
             <div
               style={{
-                transform: "scale(1.176)", // Adjust this based on the zoom level (1 / 0.85)
+                transform: "scale(1.3)", // Adjust this based on the zoom level (1 / 0.85)
                 transformOrigin: "center",
                 width: "fit-content",
                 margin: "0 auto",
