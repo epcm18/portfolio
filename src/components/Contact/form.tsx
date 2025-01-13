@@ -152,33 +152,15 @@ export const ContactForm: React.FC = () => {
         </FormControl>
         {/* ReCAPTCHA */}
         {(isOnScreen || isAlreadyRendred) && (
-          <FormControl
-            isInvalid={!!captchaError}
-            isRequired
-            style={{
-              position: "relative",
-              zIndex: 10,
-              overflow: "visible",
-              width: "100%",
-            }}
-          >
-            <div
-              style={{
-                transform: "scale(1.3)", // Adjust this based on the zoom level (1 / 0.85)
-                transformOrigin: "center",
-                width: "fit-content",
-                margin: "0 auto",
-              }}
-            >
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
-                onChange={(value: string) =>
-                  setCaptchaError(value ? "" : "Robots are not welcome yet!")
-                }
-                theme={colorMode === "dark" ? "dark" : "light"}
-              />
-            </div>
+          <FormControl isInvalid={!!captchaError} isRequired>
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
+              onChange={(value: string) =>
+                setCaptchaError(value ? "" : "Robots are not welcome yet!")
+              }
+              theme={colorMode === "dark" ? "dark" : "light"}
+            />
             {!!captchaError && (
               <FormErrorMessage>{captchaError}</FormErrorMessage>
             )}
