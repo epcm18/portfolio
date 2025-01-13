@@ -12,6 +12,7 @@ import {
   Stack,
   Textarea,
   useColorMode,
+  useMediaQuery,
   useToast,
 } from "@chakra-ui/react";
 import useOnScreen from "../../hooks/use-on-screen";
@@ -29,6 +30,7 @@ export const ContactForm: React.FC = () => {
   const formRef = useRef();
   const isOnScreen = useOnScreen(formRef);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMobile] = useMediaQuery("(max-width: 480px)", { ssr: false });
 
   useEffect(() => {
     if (isOnScreen) setIsAlreadyRendred(true);
@@ -160,7 +162,12 @@ export const ContactForm: React.FC = () => {
                 setCaptchaError(value ? "" : "Robots are not welcome yet!")
               }
               theme={colorMode === "dark" ? "dark" : "light"}
-              style={{ margin: "0 auto", display: "table" }}
+              style={{
+                margin: "0 auto",
+                display: "table",
+                transform: isMobile ? "scale(0.85)" : "scale(1)",
+                transformOrigin: "center",
+              }}
             />
             {!!captchaError && (
               <FormErrorMessage>{captchaError}</FormErrorMessage>
