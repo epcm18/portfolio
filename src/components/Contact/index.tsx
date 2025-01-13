@@ -45,7 +45,7 @@ export const Contact: React.FC<contactProps> = (props: contactProps) => {
           direction={{ base: "column", sm: "row" }}
           justifyContent={"space-between"}
         >
-          <Box flex={3}>
+          <Box flex={4}>
             <ContactForm />
           </Box>
           <VStack
