@@ -165,7 +165,7 @@ export const ContactForm: React.FC = () => {
               style={{
                 margin: "0 auto",
                 display: "table",
-                transform: isMobile ? "scale(0.85)" : "scale(1)",
+                transform: isMobile ? "scale(0.65)" : "scale(1)",
                 transformOrigin: "center",
               }}
             />
