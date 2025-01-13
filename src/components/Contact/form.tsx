@@ -12,7 +12,6 @@ import {
   Stack,
   Textarea,
   useColorMode,
-  useMediaQuery,
   useToast,
 } from "@chakra-ui/react";
 import useOnScreen from "../../hooks/use-on-screen";
@@ -30,7 +29,6 @@ export const ContactForm: React.FC = () => {
   const formRef = useRef();
   const isOnScreen = useOnScreen(formRef);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isMobile] = useMediaQuery("(max-width: 480px)", { ssr: false });
 
   useEffect(() => {
     if (isOnScreen) setIsAlreadyRendred(true);
@@ -158,22 +156,29 @@ export const ContactForm: React.FC = () => {
             isInvalid={!!captchaError}
             isRequired
             style={{
-              width: isMobile ? "100%" : "auto",
+              position: "relative",
+              zIndex: 10,
               overflow: "visible",
+              width: "100%",
             }}
           >
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
-              onChange={(value: string) =>
-                setCaptchaError(value ? "" : "Robots are not welcome yet!")
-              }
-              theme={colorMode === "dark" ? "dark" : "light"}
+            <div
               style={{
+                transform: "scale(1.176)", // Adjust this based on the zoom level (1 / 0.85)
+                transformOrigin: "center",
+                width: "fit-content",
                 margin: "0 auto",
-                display: "table",
               }}
-            />
+            >
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
+                onChange={(value: string) =>
+                  setCaptchaError(value ? "" : "Robots are not welcome yet!")
+                }
+                theme={colorMode === "dark" ? "dark" : "light"}
+              />
+            </div>
             {!!captchaError && (
               <FormErrorMessage>{captchaError}</FormErrorMessage>
             )}
