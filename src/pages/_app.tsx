@@ -3,14 +3,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme";
 import { AppProps } from "next/app";
 import "./../components/Logo/style.css";
-import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    document.body.style.zoom = "85%";
-  }, []);
   return (
     <>
       <Head>

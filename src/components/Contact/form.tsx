@@ -105,7 +105,7 @@ export const ContactForm: React.FC = () => {
       onSubmit={handleSubmit((data: FormData) => submitForm(data))}
       ref={formRef}
     >
-      <Stack spacing={5}>
+      <Stack spacing={4}>
         {/* Name */}
         <FormControl isInvalid={!!errors.name} isRequired>
           <FormLabel htmlFor="name">Name</FormLabel>
