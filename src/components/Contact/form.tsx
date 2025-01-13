@@ -154,7 +154,14 @@ export const ContactForm: React.FC = () => {
         </FormControl>
         {/* ReCAPTCHA */}
         {(isOnScreen || isAlreadyRendred) && (
-          <FormControl isInvalid={!!captchaError} isRequired>
+          <FormControl
+            isInvalid={!!captchaError}
+            isRequired
+            style={{
+              width: isMobile ? "100%" : "auto",
+              overflow: "visible",
+            }}
+          >
             <ReCAPTCHA
               ref={recaptchaRef}
               sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
@@ -165,8 +172,6 @@ export const ContactForm: React.FC = () => {
               style={{
                 margin: "0 auto",
                 display: "table",
-                transform: isMobile ? "scale(0.65)" : "scale(1)",
-                transformOrigin: "center",
               }}
             />
             {!!captchaError && (
